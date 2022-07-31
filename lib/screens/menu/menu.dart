@@ -22,12 +22,12 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         /// [ StoreSearch ] is a [ SearchBar ] which is used to search the items.
         const StoreSearch(),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
 
           /// [ ToggleButtons ] is a [ ToggleButtons ] which is used to select the items.
           child: ToggleButtons(

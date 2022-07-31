@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rent_me/screens/auth/auth.dart';
 import 'package:rent_me/utils/theme.dart';
 import 'package:rent_me/widgets/profile_options.dart';
 
@@ -52,7 +53,16 @@ class ProfilePage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AuthPage(),
+            ),
+          );
+
+          debugPrint('Google Login');
+        },
         label: const Text('Logout'),
         icon: const Icon(Icons.logout_rounded),
         shape: RoundedRectangleBorder(
