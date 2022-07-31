@@ -3,15 +3,6 @@ import 'package:flutter/material.dart';
 import '../models/item.dart';
 
 class RentalItems with ChangeNotifier {
-
-  
-  static List<Item> searchItems = [];
-
-  /// [ getItems ] is the getter for [ items ]
-  List<Item> get getItems => [..._items];
-
-
-
   /// [ _items ] is the list of items that are [ available for rent ]
   static final List<Item> _items = [
     Item(
@@ -45,4 +36,12 @@ class RentalItems with ChangeNotifier {
       rating: 4.9,
     ),
   ];
+
+  /// [ getItems ] is the getter for [ items ]
+  List<Item> get getItems => [..._items];
+
+  static List<Item> searchItems = [];
+
+  /// [ searchItems ] is the getter for [ searchItems ]
+  List<Item> get getSearchItems => [...searchItems];
 }

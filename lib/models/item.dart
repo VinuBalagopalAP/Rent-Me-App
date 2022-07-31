@@ -6,6 +6,7 @@ class Item with ChangeNotifier {
   final String image;
   final double price;
   bool isFavorite = false;
+
   final double rating;
   final List<int> days;
   List<Color> colors = [

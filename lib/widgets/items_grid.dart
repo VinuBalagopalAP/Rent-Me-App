@@ -1,100 +1,103 @@
 import 'package:flutter/material.dart';
-import '../config/data.dart';
-import '../screens/details/details.dart';
-import '../utils/slide.dart';
-import '../utils/theme.dart';
-import '../widgets/fav_button.dart';
+import 'package:provider/provider.dart';
 
-class ItemsGridView extends StatefulWidget {
-  const ItemsGridView({
-    Key? key,
-  }) : super(key: key);
+import '../provider/items_provider.dart';
 
-  @override
-  State<ItemsGridView> createState() => _ItemsGridViewState();
-}
+class ItemsGridView extends StatelessWidget {
+  const ItemsGridView({super.key});
 
-class _ItemsGridViewState extends State<ItemsGridView> {
   @override
   Widget build(BuildContext context) {
+    final items = Provider.of<RentalItems>(context);
+    final rentalitems = items.getItems;
+
     return Expanded(
-      child: GridView.count(
+      child: GridView.builder(
         shrinkWrap: true,
-        crossAxisCount: 2,
-        children: RentalItems.searchItems
-            .map(
-              (e) => GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    slidingRoute(ItemDetails(e)),
-                  );
-                },
-                child: GridTile(
-                  header: FavButton(
-                    e,
-                    onTap: () {
-                      e.updateFavourite();
-                      setState(() {});
-                    },
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: StoreTheme.whitish,
-                          ),
-                          child: Center(
-                            child: Hero(
-                              tag: "shoe-${e.name}",
-                              child: Image(
-                                image: AssetImage(
-                                  e.path,
-                                ),
-                                fit: BoxFit.fitWidth,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 5,
-                        ),
-                        child: Text(
-                          e.name,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                        ),
-                        child: Text(
-                          '\$${e.price}',
-                          style: const TextStyle(
-                            color: StoreTheme.primaryColor,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )
-            .toList(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 1.0,
+          crossAxisSpacing: 10.0,
+          mainAxisSpacing: 10.0,
+        ),
+        itemBuilder: (context, index) => GridTile(
+          header: rentalitems[index],
+        ),
+
+        // children: RentalItems.searchItems
+        //     .map(
+        //       (e) => GestureDetector(
+        //         onTap: () {
+        //           Navigator.push(
+        //             context,
+        //             slidingRoute(ItemDetails(e)),
+        //           );
+        //         },
+        //         child: GridTile(
+        //           header: FavButton(
+        //             e,
+        //             onTap: () {
+        //               e.updateFavourite();
+        //               setState(() {});
+        //             },
+        //           ),
+        //           child: Column(
+        //             mainAxisSize: MainAxisSize.min,
+        //             crossAxisAlignment: CrossAxisAlignment.start,
+        //             children: [
+        //               Expanded(
+        //                 child: Container(
+        //                   decoration: const BoxDecoration(
+        //                     color: StoreTheme.whitish,
+        //                   ),
+        //                   child: Center(
+        //                     child: Hero(
+        //                       tag: "shoe-${e.name}",
+        //                       child: Image(
+        //                         image: AssetImage(
+        //                           e.path,
+        //                         ),
+        //                         fit: BoxFit.fitWidth,
+        //                       ),
+        //                     ),
+        //                   ),
+        //                 ),
+        //               ),
+        //               const SizedBox(
+        //                 height: 10,
+        //               ),
+        //               Padding(
+        //                 padding: const EdgeInsets.symmetric(
+        //                   horizontal: 10,
+        //                   vertical: 5,
+        //                 ),
+        //                 child: Text(
+        //                   e.name,
+        //                 ),
+        //               ),
+        //               const SizedBox(
+        //                 height: 5,
+        //               ),
+        //               Padding(
+        //                 padding: const EdgeInsets.symmetric(
+        //                   horizontal: 10,
+        //                 ),
+        //                 child: Text(
+        //                   '\$${e.price}',
+        //                   style: const TextStyle(
+        //                     color: StoreTheme.primaryColor,
+        //                   ),
+        //                 ),
+        //               ),
+        //               const SizedBox(
+        //                 height: 10,
+        //               ),
+        //             ],
+        //           ),
+        //         ),
+        //       ),
+        //     )
+        //     .toList(),
       ),
     );
   }

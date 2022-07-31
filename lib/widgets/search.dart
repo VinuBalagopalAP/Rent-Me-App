@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import '../config/data.dart';
+
+import '../provider/items_provider.dart';
 import '../utils/theme.dart';
 
 class StoreSearch extends StatefulWidget {
