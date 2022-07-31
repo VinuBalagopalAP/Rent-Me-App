@@ -102,11 +102,11 @@ class _ItemDetailsState extends State<ItemDetails> {
                 height: 10,
               ),
               Text(
-                "\$${widget.item.description}",
+                widget.item.description,
                 style: const TextStyle(
                   fontSize: 18,
                   color: StoreTheme.black,
-                  fontWeight: FontWeight.bold,
+                  // fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(
