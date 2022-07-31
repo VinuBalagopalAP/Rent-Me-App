@@ -11,6 +11,7 @@ class StoreBottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeNav = Provider.of<HomeNavigation>(context);
+
     return BottomNavigationBar(
       currentIndex: homeNav.currentIndex,
       onTap: homeNav.setIndex,

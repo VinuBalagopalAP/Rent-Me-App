@@ -13,6 +13,7 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  /// [ isSelected ] is a [ bool ] which is used to display the selected items.
   List<bool> isSelected = [
     true,
     false,
@@ -23,20 +24,28 @@ class _MenuState extends State<Menu> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        /// [ StoreSearch ] is a [ SearchBar ] which is used to search the items.
         const StoreSearch(),
         Padding(
           padding: const EdgeInsets.all(8.0),
+
+          /// [ ToggleButtons ] is a [ ToggleButtons ] which is used to select the items.
           child: ToggleButtons(
             borderRadius: BorderRadius.circular(8.0),
             isSelected: isSelected,
             onPressed: ((_) {
+              /// [ toggleIsAllModelSelected ] is a [ Function ] which is used to toggle the selected items with using [ RentalItems ] via [ Provider ].
               Provider.of<RentalItems>(context, listen: false)
                   .toggleIsAllModelsSelected();
+
+              /// [ setState ] is used to update the [ isSelected ] list.
               setState(() {
                 isSelected[0] = !isSelected[0];
                 isSelected[1] = !isSelected[1];
               });
             }),
+
+            /// [ children ] is a [ List ] which is used to display the selected items.
             children: const [
               Padding(
                 padding: EdgeInsets.symmetric(
@@ -58,6 +67,8 @@ class _MenuState extends State<Menu> {
         const SizedBox(
           height: 10,
         ),
+
+        /// [ ItemsGridView ] is a [ ItemsGridView ] which is used to display the items.
         const ItemsGridView(),
       ],
     );

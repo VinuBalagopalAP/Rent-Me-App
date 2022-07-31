@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 /// [ Item ] is the model for the [ Item ] that is [ available for rent ]
 class Item with ChangeNotifier {
+  final int id;
   final String name;
   final String image;
   final String description;
@@ -21,6 +22,7 @@ class Item with ChangeNotifier {
   ];
 
   Item({
+    required this.id,
     required this.name,
     required this.image,
     required this.description,

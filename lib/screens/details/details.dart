@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../../models/item.dart';
 import '../../utils/theme.dart';
 import '../../widgets/add_to_cart.dart';
-import '../../widgets/buy_now.dart';
 import '../../widgets/fav_button.dart';
 import '../../widgets/rating.dart';
 import '../../widgets/selection_button.dart';
@@ -106,7 +105,6 @@ class _ItemDetailsState extends State<ItemDetails> {
                 style: const TextStyle(
                   fontSize: 18,
                   color: StoreTheme.black,
-                  // fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(
@@ -165,10 +163,10 @@ class _ItemDetailsState extends State<ItemDetails> {
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   AddToCart(),
-                  BuyNow(),
+                  // BuyNow(),
                 ],
               )
             ],

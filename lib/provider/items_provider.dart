@@ -6,6 +6,7 @@ class RentalItems with ChangeNotifier {
   /// [ _items ] is the list of items that are [ available for rent ]
   static final List<Item> _items = [
     Item(
+      id: 1,
       name: "Bike",
       image: "bike.png",
       description:
@@ -15,6 +16,7 @@ class RentalItems with ChangeNotifier {
       isNewModel: false,
     ),
     Item(
+      id: 2,
       name: "Cycle",
       image: "cycle.png",
       description:
@@ -24,6 +26,7 @@ class RentalItems with ChangeNotifier {
       isNewModel: false,
     ),
     Item(
+      id: 3,
       name: "DJ Set",
       image: "djset.png",
       description: 'A DJ set is a set of equipment for a DJ.',
@@ -32,6 +35,7 @@ class RentalItems with ChangeNotifier {
       isNewModel: true,
     ),
     Item(
+      id: 4,
       name: " Mobile Beverage Set",
       image: "mbs.png",
       description:
@@ -41,6 +45,7 @@ class RentalItems with ChangeNotifier {
       isNewModel: true,
     ),
     Item(
+      id: 5,
       name: "Party Bus",
       image: "bus.png",
       description: 'A party bus is a vehicle for a party.',
@@ -50,10 +55,16 @@ class RentalItems with ChangeNotifier {
     ),
   ];
 
+  /// [ getID ] is the getter for [ id ]
+  List<Item> get getID => [..._items];
+
+  /// [ _isAllModelsSelected ] is the flag to check if all models are selected
   bool _isAllModelsSelected = true;
 
+  /// [ getIsAllModelsSelected ] is the getter for [ _isAllModelsSelected ]
   bool get getIsAllModelsSelected => _isAllModelsSelected;
 
+  /// [ toggleIsAllModelsSelected ] is the setter for [ _isAllModelsSelected ]
   void toggleIsAllModelsSelected() {
     _isAllModelsSelected = !_isAllModelsSelected;
     notifyListeners();
@@ -62,11 +73,13 @@ class RentalItems with ChangeNotifier {
   /// [ getItems ] is the getter for [ items ]
   List<Item> get getItems => [..._items];
 
+  /// [ searchItems ] is the list of items that are [ available for rent ] which need to be searched
   static List<Item> searchItems = [..._items];
 
   /// [ searchItems ] is the getter for [ searchItems ]
   List<Item> get getSearchItems => [...searchItems];
 
+  /// [ search ] is the function to search for [ items ]
   void search(String query) {
     searchItems = _items.where((item) {
       return item.name.toLowerCase().contains(query.toLowerCase());

@@ -16,15 +16,23 @@ class SplashScreen extends StatelessWidget {
           Text(
             'Rent',
             style: TextStyle(
-                color: Colors.white, fontSize: 70, fontFamily: 'MusticaPro'),
+              color: Colors.white,
+              fontSize: 70,
+              fontFamily: 'MusticaPro',
+            ),
           ),
           Text(
             'Me',
             style: TextStyle(
-                color: Colors.black, fontSize: 70, fontFamily: 'MusticaPro'),
+              color: Colors.black,
+              fontSize: 70,
+              fontFamily: 'MusticaPro',
+            ),
           ),
         ],
       ),
+
+      /// [ screenFunction ] is used to show the [ AuthPage ] if the user is logged in.
       screenFunction: () async {
         return const AuthPage();
       },
