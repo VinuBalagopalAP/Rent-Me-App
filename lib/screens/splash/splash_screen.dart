@@ -9,36 +9,38 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSplashScreen.withScreenFunction(
-      splash: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Text(
-            'Rent',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 70,
-              fontFamily: 'MusticaPro',
+    return Scaffold(
+      body: AnimatedSplashScreen.withScreenFunction(
+        splash: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              'Rent',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 70,
+                fontFamily: 'MusticaPro',
+              ),
             ),
-          ),
-          Text(
-            'Me',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 70,
-              fontFamily: 'MusticaPro',
+            Text(
+              'Me',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 70,
+                fontFamily: 'MusticaPro',
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
 
-      /// [ screenFunction ] is used to show the [ AuthPage ] if the user is logged in.
-      screenFunction: () async {
-        return const AuthPage();
-      },
-      duration: 3000,
-      backgroundColor: StoreTheme.blueGrey,
-      splashTransition: SplashTransition.fadeTransition,
+        /// [ screenFunction ] is used to show the [ AuthPage ] if the user is logged in.
+        screenFunction: () async {
+          return const AuthPage();
+        },
+        duration: 3000,
+        backgroundColor: StoreTheme.primaryColor,
+        splashTransition: SplashTransition.fadeTransition,
+      ),
     );
   }
 }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
+import 'package:rent_me/utils/theme.dart';
 
 import '../../screens/home/home.dart';
-import '../../provider/google_sign_in_provider.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -47,41 +45,41 @@ class AuthPage extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20.0),
-                      child: Material(
-                        elevation: 5.0,
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5.0),
-                        child: MaterialButton(
-                          onPressed: () {
-                            // final provider = Provider.of<GoogleSignInProvider>(
-                            //   context,
-                            //   listen: false,
-                            // );
+                    // Padding(
+                    //   padding: const EdgeInsets.symmetric(vertical: 20.0),
+                    //   child: Material(
+                    //     elevation: 5.0,
+                    //     color: Colors.white,
+                    //     borderRadius: BorderRadius.circular(5.0),
+                    //     child: MaterialButton(
+                    //       onPressed: () {
+                    // final provider = Provider.of<GoogleSignInProvider>(
+                    //   context,
+                    //   listen: false,
+                    // );
 
-                            // provider.googleLogin();
+                    // provider.googleLogin();
 
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Home(),
-                              ),
-                            );
+                    //         Navigator.push(
+                    //           context,
+                    //           MaterialPageRoute(
+                    //             builder: (context) => const Home(),
+                    //           ),
+                    //         );
 
-                            debugPrint('Google Login');
-                          },
-                          minWidth: 200.0,
-                          height: 42.0,
-                          child: const Text(
-                            'Login with Google',
-                            style: TextStyle(
-                              color: Colors.blueGrey,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    //         debugPrint('Google Login');
+                    //       },
+                    //       minWidth: 200.0,
+                    //       height: 42.0,
+                    //       child: const Text(
+                    //         'Login with Google',
+                    //         style: TextStyle(
+                    //           color: Colors.blueGrey,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                     const SizedBox(
                       height: 20,
                     ),
@@ -92,7 +90,34 @@ class AuthPage extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: const Color.fromARGB(255, 34, 42, 46),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const Home(),
+            ),
+          );
+
+          debugPrint('Google Login');
+
+          // final provider = Provider.of<GoogleSignInProvider>(
+          //   context,
+          //   listen: false,
+          // );
+
+          // provider.googleLogin();
+        },
+        label: const Text('Login with Google'),
+        foregroundColor: StoreTheme.white,
+        backgroundColor: StoreTheme.blueGrey,
+        icon: const Icon(Icons.login_rounded),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      backgroundColor: StoreTheme.primaryColor,
     );
   }
 }
