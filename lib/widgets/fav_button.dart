@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-import '../models/item.dart';
 import '../utils/theme.dart';
 
-class FavButton extends StatelessWidget {
+class FavButton extends StatefulWidget {
   final VoidCallback? onTap;
-  final Item shoe;
+  final bool isFav;
 
-  const FavButton(this.shoe, {Key? key, this.onTap}) : super(key: key);
+  const FavButton(this.isFav, {Key? key, this.onTap}) : super(key: key);
 
+  @override
+  State<FavButton> createState() => _FavButtonState();
+}
+
+class _FavButtonState extends State<FavButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerLeft,
       child: TextButton(
-        onPressed: onTap,
+        onPressed: widget.onTap,
         style: ButtonStyle(
           shape: MaterialStateProperty.resolveWith(
             (states) => const CircleBorder(),
@@ -24,7 +28,7 @@ class FavButton extends StatelessWidget {
         ),
         child: Icon(
           Icons.favorite,
-          color: shoe.isFavorite ? StoreTheme.primaryColor : StoreTheme.black,
+          color: widget.isFav ? StoreTheme.primaryColor : StoreTheme.black,
         ),
       ),
     );

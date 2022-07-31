@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 /// [ Item ] is the model for the [ Item ] that is [ available for rent ]
@@ -5,6 +7,7 @@ class Item with ChangeNotifier {
   final String name;
   final String image;
   final double price;
+  final bool isNewModel;
   bool isFavorite = false;
 
   final double rating;
@@ -20,6 +23,7 @@ class Item with ChangeNotifier {
     required this.name,
     required this.image,
     required this.price,
+    required this.isNewModel,
     this.rating = 0,
     this.days = const [39, 40, 42, 43, 44],
   });
@@ -30,6 +34,7 @@ class Item with ChangeNotifier {
   /// [ updateFavorite ] is the setter for [ isFavorite ]
   void updateFavourite() {
     isFavorite = !isFavorite;
+    log('hello');
 
     /// [ notifyListeners ] is used to notify the [ listeners ] of the [ changes ]
     notifyListeners();

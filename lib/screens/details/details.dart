@@ -79,7 +79,7 @@ class _ItemDetailsState extends State<ItemDetails> {
                       bottom: 10,
                       right: 10,
                       child: FavButton(
-                        widget.item,
+                        widget.item.isFavorite,
                         onTap: () {
                           widget.item.updateFavourite();
                           setState(() {});

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rent_me/provider/items_provider.dart';
 import '../../widgets/bottom_nav.dart';
 import '../../widgets/items_grid.dart';
 import '../../widgets/menu_button.dart';
 import '../../widgets/search.dart';
-import '/utils/theme.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,6 +15,10 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   int page = 0;
+  List<bool> isSelected = [
+    true,
+    false,
+  ];
 
   void updatePage(int x) {
     setState(() {
@@ -36,19 +41,35 @@ class HomeState extends State<Home> {
             const StoreSearch(),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TabBar(
-                isScrollable: true,
-                tabs: const [
-                  Tab(text: 'All models'),
-                  Tab(text: 'New models'),
-                ],
-                indicator: BoxDecoration(
-                  color: StoreTheme.primaryColor,
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                labelColor: StoreTheme.white,
-                unselectedLabelColor: StoreTheme.black,
-              ),
+              child: ToggleButtons(
+                  isSelected: isSelected,
+                  onPressed: ((_) {
+                    Provider.of<RentalItems>(context, listen: false)
+                        .toggleIsAllModelsSelected();
+                    setState(() {
+                      isSelected[0] = !isSelected[0];
+                      isSelected[1] = !isSelected[1];
+                    });
+                  }),
+                  children: const [
+                    Text("All Models"),
+                    Text("New Models"),
+                  ]
+
+                  //  TabBar(
+                  //   isScrollable: true,
+                  //   tabs: const [
+                  //     Tab(text: 'All models'),
+                  //     Tab(text: 'New models'),
+                  //   ],
+                  //   indicator: BoxDecoration(
+                  //     color: StoreTheme.primaryColor,
+                  //     borderRadius: BorderRadius.circular(100),
+                  //   ),
+                  //   labelColor: StoreTheme.white,
+                  //   unselectedLabelColor: StoreTheme.black,
+                  // ),
+                  ),
             ),
             const SizedBox(
               height: 10,

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
 import '../provider/items_provider.dart';
 import '../utils/theme.dart';
@@ -28,11 +29,7 @@ class _StoreSearchState extends State<StoreSearch> {
       child: CupertinoSearchTextField(
         backgroundColor: StoreTheme.grey,
         onChanged: (value) {
-          setState(() {
-            RentalItems.searchItems = RentalItems.searchItems.where((item) {
-              return item.name.toLowerCase().contains(value.toLowerCase());
-            }).toList();
-          });
+          Provider.of<RentalItems>(context, listen: false).search(value);
         },
       ),
     );

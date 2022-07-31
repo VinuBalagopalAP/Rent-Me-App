@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rent_me/provider/items_provider.dart';
 import 'package:rent_me/utils/theme.dart';
 
 import '../provider/google_sign_in_provider.dart';
@@ -23,8 +24,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => GoogleSignInProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: RentalItems(),
+        ),
+        ChangeNotifierProvider.value(
+          value: GoogleSignInProvider(),
+        )
+      ],
       child: MaterialApp(
         theme: StoreTheme.theme,
         debugShowCheckedModeBanner: false,
