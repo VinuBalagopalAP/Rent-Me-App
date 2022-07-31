@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rent_me/screens/menu/menu.dart';
 
-import '../../provider/items_provider.dart';
+import '../../provider/home_navigation_provider.dart';
 import '../../widgets/bottom_nav.dart';
-import '../../widgets/items_grid.dart';
 import '../../widgets/menu_button.dart';
-import '../../widgets/search.dart';
+import '../cart/cart_screen.dart';
+import '../profile/profile.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -15,20 +16,20 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  int page = 0;
-  List<bool> isSelected = [
-    true,
-    false,
-  ];
-
-  void updatePage(int x) {
-    setState(() {
-      page = x;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final homeNav = Provider.of<HomeNavigation>(context);
+
+    final List<Widget> pages = [
+      const Menu(),
+      const CartScreen(),
+      const LoginPage(),
+    ];
+
+    Widget bodyWidget() {
+      return pages[homeNav.currentIndex];
+    }
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -36,65 +37,8 @@ class HomeState extends State<Home> {
           leading: const MenuButton(),
           actions: actionButtons,
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const StoreSearch(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ToggleButtons(
-                  borderRadius: BorderRadius.circular(8.0),
-                  isSelected: isSelected,
-                  onPressed: ((_) {
-                    Provider.of<RentalItems>(context, listen: false)
-                        .toggleIsAllModelsSelected();
-                    setState(() {
-                      isSelected[0] = !isSelected[0];
-                      isSelected[1] = !isSelected[1];
-                    });
-                  }),
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 12.0,
-                        horizontal: 20.0,
-                      ),
-                      child: Text("All Models"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 12.0,
-                        horizontal: 20.0,
-                      ),
-                      child: Text("New Models"),
-                    ),
-                  ]
-
-                  //  TabBar(
-                  //   isScrollable: true,
-                  //   tabs: const [
-                  //     Tab(text: 'All models'),
-                  //     Tab(text: 'New models'),
-                  //   ],
-                  //   indicator: BoxDecoration(
-                  //     color: StoreTheme.primaryColor,
-                  //     borderRadius: BorderRadius.circular(100),
-                  //   ),
-                  //   labelColor: StoreTheme.white,
-                  //   unselectedLabelColor: StoreTheme.black,
-                  // ),
-                  ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const ItemsGridView(),
-          ],
-        ),
-        bottomNavigationBar: StoreBottomNavigation(
-          page: page,
-          updatePage: updatePage,
-        ),
+        body: bodyWidget(),
+        bottomNavigationBar: const StoreBottomNavigation(),
       ),
     );
   }

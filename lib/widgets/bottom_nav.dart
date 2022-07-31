@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/home_navigation_provider.dart';
 
 class StoreBottomNavigation extends StatelessWidget {
-  final int page;
-  final ValueChanged<int> updatePage;
-
   const StoreBottomNavigation({
     Key? key,
-    required this.page,
-    required this.updatePage,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final homeNav = Provider.of<HomeNavigation>(context);
     return BottomNavigationBar(
-      currentIndex: page,
-      onTap: updatePage,
+      currentIndex: homeNav.currentIndex,
+      onTap: homeNav.setIndex,
       type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(

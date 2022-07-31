@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rent_me/provider/home_navigation_provider.dart';
 
 import '../../provider/items_provider.dart';
 import '../../utils/theme.dart';
@@ -30,7 +31,10 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider.value(
           value: GoogleSignInProvider(),
-        )
+        ),
+        ChangeNotifierProvider.value(
+          value: HomeNavigation(),
+        ),
       ],
       child: MaterialApp(
         theme: StoreTheme.theme,
