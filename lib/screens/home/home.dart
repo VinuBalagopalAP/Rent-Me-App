@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rent_me/provider/items_provider.dart';
+
+import '../../provider/items_provider.dart';
 import '../../widgets/bottom_nav.dart';
 import '../../widgets/items_grid.dart';
 import '../../widgets/menu_button.dart';
@@ -42,6 +43,7 @@ class HomeState extends State<Home> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ToggleButtons(
+                  borderRadius: BorderRadius.circular(8.0),
                   isSelected: isSelected,
                   onPressed: ((_) {
                     Provider.of<RentalItems>(context, listen: false)
@@ -52,8 +54,20 @@ class HomeState extends State<Home> {
                     });
                   }),
                   children: const [
-                    Text("All Models"),
-                    Text("New Models"),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 12.0,
+                        horizontal: 20.0,
+                      ),
+                      child: Text("All Models"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 12.0,
+                        horizontal: 20.0,
+                      ),
+                      child: Text("New Models"),
+                    ),
                   ]
 
                   //  TabBar(

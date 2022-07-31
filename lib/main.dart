@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rent_me/provider/items_provider.dart';
-import 'package:rent_me/utils/theme.dart';
 
+import '../../provider/items_provider.dart';
+import '../../utils/theme.dart';
 import '../provider/google_sign_in_provider.dart';
-
 import 'screens/splash/splash_screen.dart';
 
 Future main() async {

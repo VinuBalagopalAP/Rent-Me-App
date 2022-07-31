@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:rent_me/models/item.dart';
 
+import '../../models/item.dart';
 import '../../utils/theme.dart';
 import '../../widgets/add_to_cart.dart';
 import '../../widgets/buy_now.dart';
@@ -22,7 +22,7 @@ class ItemDetails extends StatefulWidget {
 }
 
 class _ItemDetailsState extends State<ItemDetails> {
-  int _selectedDays = 39;
+  int _selectedDays = 1;
 
   void updateSelectedSize(int size) {
     setState(() {
@@ -101,12 +101,23 @@ class _ItemDetailsState extends State<ItemDetails> {
               const SizedBox(
                 height: 10,
               ),
+              Text(
+                "\$${widget.item.description} per day",
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: StoreTheme.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               Rating(rating: widget.item.rating),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                "\$${widget.item.price}",
+                "\$${widget.item.price} per day",
                 style: const TextStyle(
                   fontSize: 25,
                   color: StoreTheme.primaryColor,
@@ -116,7 +127,7 @@ class _ItemDetailsState extends State<ItemDetails> {
               const SizedBox(
                 height: 20,
               ),
-              const Text("Sizes"),
+              const Text("Days"),
               const SizedBox(
                 height: 10,
               ),
@@ -134,21 +145,21 @@ class _ItemDetailsState extends State<ItemDetails> {
               const SizedBox(
                 height: 20,
               ),
-              const Text("Colors"),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: widget.item.colors
-                    .map(
-                      (e) => SelectionButton<Color>(
-                        value: e,
-                        selectedValue: _selectedColor,
-                        updateValue: updateSelectedColor,
-                      ),
-                    )
-                    .toList(),
-              ),
+              // const Text("Colors"),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Row(
+              //   children: widget.item.colors
+              //       .map(
+              //         (e) => SelectionButton<Color>(
+              //           value: e,
+              //           selectedValue: _selectedColor,
+              //           updateValue: updateSelectedColor,
+              //         ),
+              //       )
+              //       .toList(),
+              // ),
               const SizedBox(
                 height: 10,
               ),

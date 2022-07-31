@@ -8,6 +8,8 @@ class RentalItems with ChangeNotifier {
     Item(
       name: "Bike",
       image: "bike.png",
+      description:
+          'A bike is a bicycle with two wheels, one behind the other, which can be steered by the rider using a handlebar or by pedaling.',
       price: 28.50,
       rating: 3.8,
       isNewModel: false,
@@ -15,6 +17,8 @@ class RentalItems with ChangeNotifier {
     Item(
       name: "Cycle",
       image: "cycle.png",
+      description:
+          'A cycle is a vehicle with two wheels, one behind the other, which can be steered by the rider using a handlebar or by pedaling.',
       price: 14.0,
       rating: 5,
       isNewModel: false,
@@ -22,6 +26,7 @@ class RentalItems with ChangeNotifier {
     Item(
       name: "DJ Set",
       image: "djset.png",
+      description: 'A DJ set is a set of equipment for a DJ.',
       price: 64.50,
       rating: 4.7,
       isNewModel: true,
@@ -29,6 +34,8 @@ class RentalItems with ChangeNotifier {
     Item(
       name: " Mobile Beverage Set",
       image: "mbs.png",
+      description:
+          'A mobile beverage set is a set of equipment for a mobile beverage.',
       price: 32.70,
       rating: 4.9,
       isNewModel: true,
@@ -36,6 +43,7 @@ class RentalItems with ChangeNotifier {
     Item(
       name: "Party Bus",
       image: "bus.png",
+      description: 'A party bus is a vehicle for a party.',
       price: 99.99,
       rating: 4.9,
       isNewModel: true,
@@ -66,6 +74,4 @@ class RentalItems with ChangeNotifier {
 
     notifyListeners();
   }
-
-  
 }

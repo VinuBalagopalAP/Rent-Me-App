@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class Item with ChangeNotifier {
   final String name;
   final String image;
+  final String description;
   final double price;
   final bool isNewModel;
   bool isFavorite = false;
@@ -22,10 +23,11 @@ class Item with ChangeNotifier {
   Item({
     required this.name,
     required this.image,
+    required this.description,
     required this.price,
     required this.isNewModel,
     this.rating = 0,
-    this.days = const [39, 40, 42, 43, 44],
+    this.days = const [1, 2, 5, 10, 30],
   });
 
   /// [ path ] is the getter for [ imagePath ]
