@@ -102,7 +102,7 @@ class _ItemDetailsState extends State<ItemDetails> {
                 height: 10,
               ),
               Text(
-                "\$${widget.item.description} per day",
+                "\$${widget.item.description}",
                 style: const TextStyle(
                   fontSize: 18,
                   color: StoreTheme.black,
