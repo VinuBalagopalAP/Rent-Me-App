@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../models/item.dart';
@@ -31,7 +33,7 @@ class RentalItems with ChangeNotifier {
       image: "mbs.png",
       price: 32.70,
       rating: 4.9,
-      isNewModel: true,
+      isNewModel: false,
     ),
     Item(
       name: "Party Bus",
@@ -59,13 +61,24 @@ class RentalItems with ChangeNotifier {
   /// [ searchItems ] is the getter for [ searchItems ]
   List<Item> get getSearchItems => [...searchItems];
 
-  void search(String query) {
-    searchItems = _items.where((item) {
-      return item.name.toLowerCase().contains(query.toLowerCase());
-    }).toList();
-
-    notifyListeners();
+  List<Item> get getNewModels {
+    return _items.where((element) => element.isNewModel == true).toList();
   }
 
-  
+  void search(String query) {
+    searchItems.clear();
+    _items.where((item) {
+      log(item.name.toLowerCase());
+      log(query.toLowerCase());
+      log(item.name.toLowerCase().contains(query.toLowerCase()).toString());
+      if (item.name.toLowerCase().contains(query.toLowerCase())) {
+        searchItems.add(item);
+        notifyListeners();
+      }
+      return item.name.toLowerCase().contains(query.toLowerCase());
+    }).toList();
+    for (var item in searchItems) {
+      log(item.name);
+    }
+  }
 }

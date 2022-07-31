@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rent_me/models/item.dart';
 import 'package:rent_me/provider/items_provider.dart';
+import 'package:rent_me/screens/details/details.dart';
+import '../../utils/slide.dart';
 import '../../widgets/bottom_nav.dart';
 import '../../widgets/items_grid.dart';
 import '../../widgets/menu_button.dart';
@@ -95,6 +100,78 @@ class HomeState extends State<Home> {
         onPressed: () {},
         icon: const Icon(Icons.settings_outlined),
       ),
+      IconButton(
+        onPressed: () {
+          showSearch(context: context, delegate: CustomSearchDelegate());
+        },
+        icon: const Icon(Icons.search),
+      )
     ];
+  }
+}
+
+class CustomSearchDelegate extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            query = '';
+          },
+          icon: const Icon(Icons.clear))
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        close(context, null);
+      },
+      icon: const Icon(Icons.arrow_back),
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    log('hello');
+    return SearchList(query: query);
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    return query.isEmpty ? Column() : SearchList(query: query);
+  }
+}
+
+class SearchList extends StatelessWidget {
+  final String query;
+  const SearchList({required this.query, Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final model = Provider.of<RentalItems>(context);
+
+    List<Item> results = query != null
+        ? model.getItems
+            .where((ex) => ex.name.toLowerCase().contains(query.toLowerCase()))
+            .toList()
+        : model.getItems;
+
+    return ListView.builder(
+      itemCount: results.length,
+      itemBuilder: (context, position) {
+        var item = results[position];
+        return ChangeNotifierProvider.value(
+          value: item,
+          child: GestureDetector(
+              onTap: () => Navigator.push(
+                    context,
+                    slidingRoute(ItemDetails(item)),
+                  ),
+              child: ListTile(title: Text(item.name))),
+        );
+      },
+    );
   }
 }
