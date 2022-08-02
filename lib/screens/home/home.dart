@@ -6,10 +6,10 @@ import 'package:rent_me/models/item.dart';
 import 'package:rent_me/provider/items_provider.dart';
 import 'package:rent_me/screens/details/details.dart';
 import '../../utils/slide.dart';
+import '../../utils/theme.dart';
 import '../../widgets/bottom_nav.dart';
 import '../../widgets/items_grid.dart';
 import '../../widgets/menu_button.dart';
-import '../../widgets/search.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -43,7 +43,28 @@ class HomeState extends State<Home> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const StoreSearch(),
+            GestureDetector(
+              onTap: () => showSearch(
+                  context: context, delegate: CustomSearchDelegate()),
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 10,
+                ),
+                decoration: BoxDecoration(
+                  color: StoreTheme.grey,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  children: const [
+                    Text("Search...."),
+                    Spacer(),
+                    Icon(Icons.search)
+                  ],
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ToggleButtons(
