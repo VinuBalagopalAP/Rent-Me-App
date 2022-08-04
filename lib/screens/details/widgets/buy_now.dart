@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utils/theme.dart';
+import '../../../utils/theme.dart';
 
 class BuyNow extends StatelessWidget {
   const BuyNow({

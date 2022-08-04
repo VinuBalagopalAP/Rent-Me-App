@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../provider/items_provider.dart';
-import '../../widgets/items_grid.dart';
+import '../../provider/product/items_provider.dart';
+import 'widgets/items_grid.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);

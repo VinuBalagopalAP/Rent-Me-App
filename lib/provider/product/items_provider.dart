@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/item.dart';
+import '../../models/product/item.dart';
 
 class RentalItems with ChangeNotifier {
   /// [ _items ] is the list of items that are [ available for rent ]

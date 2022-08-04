@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rent_me/provider/home_navigation_provider.dart';
+import 'package:rent_me/provider/menu/home_navigation_provider.dart';
 
-import '../../provider/items_provider.dart';
+import 'provider/product/items_provider.dart';
 import '../../utils/theme.dart';
-import '../provider/google_sign_in_provider.dart';
+import 'provider/auth/google_sign_in_provider.dart';
 import 'firebase_options.dart';
 import 'screens/splash/splash_screen.dart';
 

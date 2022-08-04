@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../provider/home_navigation_provider.dart';
+import '../../../provider/menu/home_navigation_provider.dart';
 
 class StoreBottomNavigation extends StatelessWidget {
   const StoreBottomNavigation({

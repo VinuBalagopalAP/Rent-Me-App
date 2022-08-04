@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rent_me/screens/menu/menu.dart';
 
-import '../../provider/home_navigation_provider.dart';
-import '../../widgets/bottom_nav.dart';
-import '../../widgets/menu_button.dart';
-import '../../widgets/search.dart';
+import '../../provider/menu/home_navigation_provider.dart';
+import 'widgets/bottom_nav.dart';
+import 'widgets/menu_button.dart';
+import 'widgets/search.dart';
 import '../cart/cart_screen.dart';
 import '../profile/profile.dart';
 

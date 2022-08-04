@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rent_me/screens/auth/auth.dart';
 import 'package:rent_me/utils/theme.dart';
-import 'package:rent_me/widgets/profile_options.dart';
+import 'package:rent_me/screens/profile/widgets/profile_options.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);

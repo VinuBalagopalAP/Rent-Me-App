@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/item.dart';
-import '../provider/items_provider.dart';
-import '../screens/details/details.dart';
-import '../utils/slide.dart';
-import '../utils/theme.dart';
+import '../../../models/product/item.dart';
+import '../../../provider/product/items_provider.dart';
+import '../../details/details.dart';
+import '../../../utils/slide.dart';
+import '../../../utils/theme.dart';
 
 class StoreSearch extends StatefulWidget {
   const StoreSearch({

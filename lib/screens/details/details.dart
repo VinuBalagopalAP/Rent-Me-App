@@ -2,12 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../../models/item.dart';
+import '../../models/product/item.dart';
 import '../../utils/theme.dart';
-import '../../widgets/add_to_cart.dart';
-import '../../widgets/fav_button.dart';
-import '../../widgets/rating.dart';
-import '../../widgets/selection_button.dart';
+import 'widgets/add_to_cart.dart';
+import '../menu/widgets/fav_button.dart';
+import 'widgets/rating.dart';
+import 'widgets/selection_button.dart';
 
 class ItemDetails extends StatefulWidget {
   final Item item;
