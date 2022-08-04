@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "676523802823",
+    "project_id": "rent-me-flutter-vinu",
+    "storage_bucket": "rent-me-flutter-vinu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676523802823:android:8764d740b0af132e1b3ee2",
+        "android_client_info": {
+          "package_name": "com.example.rent_me"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676523802823-e8ursbj84lcpvehr6qihllfmu4bpm34h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUhG-2BQ-F0Eubv5gXuaG4uK5tYd9-Gwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676523802823-e8ursbj84lcpvehr6qihllfmu4bpm34h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>676523802823-4o3pns9tspopclc6k70esoq0l04artbs.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.676523802823-4o3pns9tspopclc6k70esoq0l04artbs</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC2B211-X8UP-Eo2rC1BTfTp86N5ozrYns</string>
+	<key>GCM_SENDER_ID</key>
+	<string>676523802823</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.rentMe</string>
+	<key>PROJECT_ID</key>
+	<string>rent-me-flutter-vinu</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rent-me-flutter-vinu.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:676523802823:ios:10577a7a9fa0332e1b3ee2</string>
+</dict>
+</plist>
