@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import './email_field.dart';
 import './password_field.dart';
-import '../../../utils/theme.dart';
 
 class LoginSection extends StatefulWidget {
   const LoginSection({Key? key}) : super(key: key);
@@ -26,37 +25,8 @@ class _LoginSectionState extends State<LoginSection> {
       ),
     );
 
-    final signUp = GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, '/signup', arguments: '');
-      },
-      child: Container(
-        padding: const EdgeInsets.only(top: 10.0),
-        alignment: Alignment.center,
-        child: RichText(
-          text: const TextSpan(
-            text: "Don't have an account?",
-            style: TextStyle(
-              fontSize: 12.0,
-              color: Colors.black,
-              // decoration: TextDecoration.underline,
-            ),
-            children: <TextSpan>[
-              TextSpan(
-                text: ' Sign up',
-                style: TextStyle(
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.bold,
-                  color: StoreTheme.whitish,
-                  // decoration: TextDecoration.none,
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-    return Padding(
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.6,
       padding: const EdgeInsets.all(20.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -89,7 +59,6 @@ class _LoginSectionState extends State<LoginSection> {
           const SizedBox(height: 10),
           const PasswordField(),
           forgotPassword,
-          signUp,
         ],
       ),
     );

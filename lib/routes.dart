@@ -3,50 +3,52 @@ import 'package:flutter/material.dart';
 import '../../screens/auth/widgets/auth_section.dart';
 import '../../screens/screens.dart';
 
-/// [ myRoutes ] to define the routes of the app.
-Route<dynamic> myRoutes(RouteSettings settings) {
-  switch (settings.name) {
-    case '/':
-      return MaterialPageRoute(
-        builder: (context) => const SplashScreen(),
-      );
+class MyRoutes {
+  static Route<dynamic> myRoutes(RouteSettings settings) {
+    /// [ args ] is the arguments passed to the route.
 
-    case '/auth':
-      return MaterialPageRoute(
-        builder: (context) => const AuthPage(),
-      );
+    switch (settings.name) {
+      case '/':
+        return MaterialPageRoute(
+          builder: (context) => const SplashScreen(),
+        );
 
-    case '/home':
-      return MaterialPageRoute(
-        builder: (context) => const Home(),
-      );
+      case '/auth':
+        return MaterialPageRoute(
+          builder: (context) => const AuthPage(),
+        );
 
-    case '/signup':
-      return MaterialPageRoute(
-        builder: (context) => const SignUpSection(),
-      );
+      case '/home':
+        return MaterialPageRoute(
+          builder: (context) => const Home(),
+        );
 
-    case '/login':
-      return MaterialPageRoute(
-        builder: (context) => const LoginSection(),
-      );
+      case '/signup':
+        return MaterialPageRoute(
+          builder: (context) => const SignUpSection(),
+        );
 
-    case '/menu':
-      return MaterialPageRoute(
-        builder: (context) => const Menu(),
-      );
-    case '/cart':
-      return MaterialPageRoute(
-        builder: (context) => const CartScreen(),
-      );
+      case '/login':
+        return MaterialPageRoute(
+          builder: (context) => const LoginSection(),
+        );
 
-    case '/profile':
-      return MaterialPageRoute(
-        builder: (context) => const ProfilePage(),
-      );
+      case '/menu':
+        return MaterialPageRoute(
+          builder: (context) => const Menu(),
+        );
+      case '/cart':
+        return MaterialPageRoute(
+          builder: (context) => const CartScreen(),
+        );
+
+      case '/profile':
+        return MaterialPageRoute(
+          builder: (context) => const ProfilePage(),
+        );
+    }
+    return MaterialPageRoute(
+      builder: (context) => const SplashScreen(),
+    );
   }
-
-  return MaterialPageRoute(
-    builder: (context) => const SplashScreen(),
-  );
 }

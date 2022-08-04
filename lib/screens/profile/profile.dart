@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rent_me/screens/auth/auth.dart';
-import 'package:rent_me/utils/theme.dart';
-import 'package:rent_me/screens/profile/widgets/profile_options.dart';
+import 'package:provider/provider.dart';
+
+import '../../utils/theme.dart';
+import '../../screens/profile/widgets/profile_options.dart';
+import '../../provider/auth/google_sign_in_provider.dart';
 
 class ProfilePage extends StatelessWidget {
   static const routeName = '/auth';
@@ -46,24 +48,16 @@ class ProfilePage extends StatelessWidget {
             subtitle: 'Terms and conditions, policies and more',
             title: 'Read More',
           ),
-          // ElevatedButton.icon(
-          //   onPressed: () {},
-          //   icon: const Icon(Icons.logout_rounded),
-          //   label: const Text('Logout'),
-          // ),
           SizedBox(height: 10),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const AuthPage(),
-            ),
-          );
+          final provider =
+              Provider.of<GoogleSignInProvider>(context, listen: false);
 
-          debugPrint('Google Login');
+          provider.googleLogout();
+          debugPrint('Google Logout');
         },
         label: const Text('Logout'),
         icon: const Icon(Icons.logout_rounded),

@@ -66,10 +66,6 @@ class HomeState extends State<Home> {
         onPressed: () {},
         icon: const Icon(Icons.notifications_outlined),
       ),
-      IconButton(
-        onPressed: () {},
-        icon: const Icon(Icons.settings_outlined),
-      ),
     ];
   }
 }

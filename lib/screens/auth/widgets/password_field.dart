@@ -89,11 +89,14 @@ class _PasswordFieldState extends State<PasswordField> {
           }
 
           /// [ value.lenth < 6 ] is used to check the length of the [ password ] field.
-          value.length < 6
+          value.length < 6 || value.length > 10
               ? ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text(
-                        'Password too short, should minimum contains 6 characters.'),
+                  SnackBar(
+                    content: value.length > 10
+                        ? const Text(
+                            'Password too long, should maximum contains 10 characters.')
+                        : const Text(
+                            'Password too short, should minimum contains 6 characters.'),
                   ),
                 )
               : '';
