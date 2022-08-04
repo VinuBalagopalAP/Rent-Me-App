@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../../provider/items_provider.dart';
 import '../../widgets/items_grid.dart';
-import '../../widgets/search.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -25,7 +24,7 @@ class _MenuState extends State<Menu> {
       // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         /// [ StoreSearch ] is a [ SearchBar ] which is used to search the items.
-        const StoreSearch(),
+        // const StoreSearch(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
 

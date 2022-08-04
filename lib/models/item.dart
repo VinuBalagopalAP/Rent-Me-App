@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 /// [ Item ] is the model for the [ Item ] that is [ available for rent ]
@@ -38,7 +36,7 @@ class Item with ChangeNotifier {
   /// [ updateFavorite ] is the setter for [ isFavorite ]
   void updateFavourite() {
     isFavorite = !isFavorite;
-    log('hello');
+    debugPrint('isFavorite: $isFavorite');
 
     /// [ notifyListeners ] is used to notify the [ listeners ] of the [ changes ]
     notifyListeners();

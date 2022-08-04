@@ -79,12 +79,27 @@ class RentalItems with ChangeNotifier {
   /// [ searchItems ] is the getter for [ searchItems ]
   List<Item> get getSearchItems => [...searchItems];
 
+  /// [ getNewModels ] is the list of items that are [ fetched while search happens ]
+  List<Item> get getNewModels {
+    return _items.where((element) => element.isNewModel == true).toList();
+  }
+
   /// [ search ] is the function to search for [ items ]
   void search(String query) {
-    searchItems = _items.where((item) {
+    searchItems.clear();
+    _items.where((item) {
+      debugPrint(item.name.toLowerCase());
+      debugPrint(query.toLowerCase());
+      debugPrint(
+          item.name.toLowerCase().contains(query.toLowerCase()).toString());
+      if (item.name.toLowerCase().contains(query.toLowerCase())) {
+        searchItems.add(item);
+        notifyListeners();
+      }
       return item.name.toLowerCase().contains(query.toLowerCase());
     }).toList();
-
-    notifyListeners();
+    for (var item in searchItems) {
+      debugPrint(item.name);
+    }
   }
 }

@@ -5,6 +5,7 @@ import 'package:rent_me/screens/menu/menu.dart';
 import '../../provider/home_navigation_provider.dart';
 import '../../widgets/bottom_nav.dart';
 import '../../widgets/menu_button.dart';
+import '../../widgets/search.dart';
 import '../cart/cart_screen.dart';
 import '../profile/profile.dart';
 
@@ -53,6 +54,12 @@ class HomeState extends State<Home> {
   /// [ actionButtons ] is a [ List ] of [ Widget ] which are used to display the current screen.
   List<Widget> get actionButtons {
     return [
+      IconButton(
+        onPressed: () {
+          showSearch(context: context, delegate: CustomSearchDelegate());
+        },
+        icon: const Icon(Icons.search),
+      ),
       IconButton(
         onPressed: () {},
         icon: const Icon(Icons.notifications_outlined),
