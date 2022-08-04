@@ -6,6 +6,8 @@ import 'widgets/email_field.dart';
 import 'widgets/password_field.dart';
 
 class AuthPage extends StatefulWidget {
+  static const routeName = '/auth';
+
   const AuthPage({Key? key}) : super(key: key);
 
   @override
@@ -41,15 +43,16 @@ class _AuthPageState extends State<AuthPage> {
             style: TextStyle(
               fontSize: 12.0,
               color: Colors.black,
-              decoration: TextDecoration.underline,
+              // decoration: TextDecoration.underline,
             ),
             children: <TextSpan>[
               TextSpan(
                 text: ' Sign up',
                 style: TextStyle(
                   fontSize: 12.0,
+                  fontWeight: FontWeight.bold,
                   color: StoreTheme.whitish,
-                  decoration: TextDecoration.none,
+                  // decoration: TextDecoration.none,
                 ),
               )
             ],

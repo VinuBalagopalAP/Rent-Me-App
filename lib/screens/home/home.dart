@@ -6,10 +6,12 @@ import '../../provider/menu/home_navigation_provider.dart';
 import 'widgets/bottom_nav.dart';
 import 'widgets/menu_button.dart';
 import 'widgets/search.dart';
-import '../cart/cart_screen.dart';
+import '../cart/cart.dart';
 import '../profile/profile.dart';
 
 class Home extends StatefulWidget {
+  static const routeName = '/home';
+
   const Home({Key? key}) : super(key: key);
 
   @override

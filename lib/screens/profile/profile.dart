@@ -4,6 +4,8 @@ import 'package:rent_me/utils/theme.dart';
 import 'package:rent_me/screens/profile/widgets/profile_options.dart';
 
 class ProfilePage extends StatelessWidget {
+  static const routeName = '/auth';
+
   const ProfilePage({Key? key}) : super(key: key);
 
   @override

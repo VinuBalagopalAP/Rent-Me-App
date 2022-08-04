@@ -1,13 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rent_me/provider/menu/home_navigation_provider.dart';
 
-import 'provider/product/items_provider.dart';
+import './firebase_options.dart';
+import '../provider/providers.dart';
 import '../../utils/theme.dart';
-import 'provider/auth/google_sign_in_provider.dart';
-import 'firebase_options.dart';
-import 'screens/splash/splash_screen.dart';
+import '../screens/screens.dart';
 
 Future main() async {
   /// [ ensureInitialized ] to ensure that the Firebase app is initialized.
@@ -41,48 +39,15 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: StoreTheme.theme,
         debugShowCheckedModeBanner: false,
-        // home: StreamBuilder(
-        //   stream: FirebaseAuth.instance.authStateChanges(),
-        //   builder: (context, snapshot) {
-        //     switch (snapshot.connectionState) {
-
-        //       /// [ Waiting ] for [ FirebaseAuth.instance.currentUser ] to be set.
-        //       case ConnectionState.waiting:
-
-        //         /// [ Circular progress indicator ] is shown while waiting for [ FirebaseAuth.instance.currentUser ] to be set.
-        //         return const Center(
-        //           child: CircularProgressIndicator(),
-        //         );
-
-        //       /// [ ConnectionState.active ] is reached when [ FirebaseAuth.instance.currentUser ] is set.
-        //       case ConnectionState.active:
-
-        //         /// [ snapshot.hasData ] to show [ HomePage ] if the user is logged in.
-        //         if (snapshot.hasData) {
-        //           debugPrint("User is logged in");
-        //           return const HomePage();
-        //         }
-
-        //         /// [ AuthPage ] is shown if the user is not logged in.
-        //         debugPrint("Try to login again");
-        //         return const SplashScreen();
-
-        //       default:
-
-        //         /// [ snapshot.hasError ] to show Error message if any error occurs
-        //         if (snapshot.hasError) {
-        //           return const Center(
-        //             child: Text('An error occurred'),
-        //           );
-        //         }
-
-        //         /// [ AuthPage ] is shown if the user is not logged in.
-        //         debugPrint("User not logged in");
-        //         return const SplashScreen();
-        //     }
-        //   },
-        // ),
-        home: const SplashScreen(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const SplashScreen(),
+          '/auth': (context) => const AuthPage(),
+          '/home': (context) => const Home(),
+          '/menu': (context) => const Menu(),
+          '/cart': (context) => const CartScreen(),
+          '/profile': (context) => const ProfilePage(),
+        },
       ),
     );
   }

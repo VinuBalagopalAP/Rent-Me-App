@@ -5,6 +5,8 @@ import '../../provider/product/items_provider.dart';
 import 'widgets/items_grid.dart';
 
 class Menu extends StatefulWidget {
+  static const routeName = '/menu';
+
   const Menu({Key? key}) : super(key: key);
 
   @override

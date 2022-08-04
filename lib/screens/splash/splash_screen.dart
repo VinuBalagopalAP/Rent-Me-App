@@ -5,6 +5,9 @@ import '../../utils/theme.dart';
 import '../auth/auth.dart';
 
 class SplashScreen extends StatelessWidget {
+  /// [ routeName ] is the name of the route that will be used to navigate to the next screen.
+  static const routeName = '/';
+
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
@@ -36,6 +39,48 @@ class SplashScreen extends StatelessWidget {
         /// [ screenFunction ] is used to show the [ AuthPage ] if the user is logged in.
         screenFunction: () async {
           return const AuthPage();
+
+          // return const StreamBuilder(
+          //   stream: FirebaseAuth.instance.authStateChanges(),
+          //   builder: (context, snapshot) {
+          //     switch (snapshot.connectionState) {
+
+          //       /// [ Waiting ] for [ FirebaseAuth.instance.currentUser ] to be set.
+          //       case ConnectionState.waiting:
+
+          //         /// [ Circular progress indicator ] is shown while waiting for [ FirebaseAuth.instance.currentUser ] to be set.
+          //         return const Center(
+          //           child: CircularProgressIndicator(),
+          //         );
+
+          //       /// [ ConnectionState.active ] is reached when [ FirebaseAuth.instance.currentUser ] is set.
+          //       case ConnectionState.active:
+
+          //         /// [ snapshot.hasData ] to show [ HomePage ] if the user is logged in.
+          //         if (snapshot.hasData) {
+          //           debugPrint("User is logged in");
+          //           return const HomePage();
+          //         }
+
+          //         /// [ AuthPage ] is shown if the user is not logged in.
+          //         debugPrint("Try to login again");
+          //         return const SplashScreen();
+
+          //       default:
+
+          //         /// [ snapshot.hasError ] to show Error message if any error occurs
+          //         if (snapshot.hasError) {
+          //           return const Center(
+          //             child: Text('An error occurred'),
+          //           );
+          //         }
+
+          //         /// [ AuthPage ] is shown if the user is not logged in.
+          //         debugPrint("User not logged in");
+          //         return const SplashScreen();
+          //     }
+          //   },
+          // ),
         },
         duration: 3000,
         backgroundColor: StoreTheme.primaryColor,
