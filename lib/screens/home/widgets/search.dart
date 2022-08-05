@@ -5,40 +5,6 @@ import '../../../models/product/item.dart';
 import '../../../provider/product/items_provider.dart';
 import '../../details/details.dart';
 import '../../../utils/slide.dart';
-import '../../../utils/theme.dart';
-
-class StoreSearch extends StatefulWidget {
-  const StoreSearch({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<StoreSearch> createState() => _StoreSearchState();
-}
-
-class _StoreSearchState extends State<StoreSearch> {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () =>
-          showSearch(context: context, delegate: CustomSearchDelegate()),
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        margin: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
-        ),
-        decoration: BoxDecoration(
-          color: StoreTheme.grey,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          children: const [Text("Search...."), Spacer(), Icon(Icons.search)],
-        ),
-      ),
-    );
-  }
-}
 
 class CustomSearchDelegate extends SearchDelegate {
   @override

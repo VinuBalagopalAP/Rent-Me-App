@@ -84,6 +84,11 @@ class RentalItems with ChangeNotifier {
     return _items.where((element) => element.isNewModel == true).toList();
   }
 
+  /// [ getFavoriteModels ] is the list of items that are [ fetched if user clicks on favorite ]
+  List<Item> get getFavoriteModels {
+    return _items.where((element) => element.isFavorite == true).toList();
+  }
+
   /// [ search ] is the function to search for [ items ]
   void search(String query) {
     searchItems.clear();

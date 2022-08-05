@@ -22,6 +22,10 @@ class StoreBottomNavigation extends StatelessWidget {
           label: "Explore",
         ),
         BottomNavigationBarItem(
+          icon: Icon(Icons.favorite),
+          label: "Favorite",
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.shopping_cart),
           label: "Cart",
         ),

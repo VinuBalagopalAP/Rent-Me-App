@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../utils/theme.dart';
-import '../../screens/profile/widgets/profile_options.dart';
-import '../../provider/auth/google_sign_in_provider.dart';
+import '../../../utils/theme.dart';
+import '../profile/widgets/profile_options.dart';
+import '../../../provider/auth/google_sign_in_provider.dart';
 
 class ProfilePage extends StatelessWidget {
   static const routeName = '/auth';
