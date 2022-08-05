@@ -5,8 +5,6 @@ import '../../screens/screens.dart';
 
 class MyRoutes {
   static Route<dynamic> myRoutes(RouteSettings settings) {
-    /// [ args ] is the arguments passed to the route.
-
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(

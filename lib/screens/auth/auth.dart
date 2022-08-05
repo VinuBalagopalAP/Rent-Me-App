@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../provider/providers.dart';
 import '../../utils/theme.dart';
 import 'widgets/auth_section.dart';
 
@@ -29,7 +27,6 @@ class _AuthPageState extends State<AuthPage> {
         });
       },
       child: Container(
-        padding: const EdgeInsets.only(top: 10.0),
         alignment: Alignment.center,
         child: RichText(
           text: TextSpan(
@@ -39,7 +36,7 @@ class _AuthPageState extends State<AuthPage> {
             style: const TextStyle(
               fontSize: 12.0,
               color: Colors.black,
-              // decoration: TextDecoration.underline,
+              decoration: TextDecoration.underline,
             ),
             children: <TextSpan>[
               TextSpan(
@@ -48,7 +45,7 @@ class _AuthPageState extends State<AuthPage> {
                   fontSize: 12.0,
                   fontWeight: FontWeight.bold,
                   color: StoreTheme.whitish,
-                  // decoration: TextDecoration.none,
+                  decoration: TextDecoration.none,
                 ),
               )
             ],
@@ -68,12 +65,14 @@ class _AuthPageState extends State<AuthPage> {
               child: Form(
                 key: _formKey,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     _toggleSection
                         ? const LoginSection()
                         : const SignUpSection(),
                     account,
+                    const SizedBox(height: 10.0),
+                    const Text('or', style: TextStyle(fontSize: 12.0)),
+                    const GoogleButton(),
                   ],
                 ),
               ),
@@ -81,16 +80,7 @@ class _AuthPageState extends State<AuthPage> {
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            debugPrint('User trying to sign in with Google');
-
-            final provider = Provider.of<GoogleSignInProvider>(
-              context,
-              listen: false,
-            );
-
-            provider.googleLogin();
-          },
+          onPressed: () {},
           label: _toggleSection ? const Text('Login') : const Text('Sign Up'),
           foregroundColor: StoreTheme.white,
           backgroundColor: StoreTheme.blueGrey,

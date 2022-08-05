@@ -21,12 +21,13 @@ class _LoginSectionState extends State<LoginSection> {
         style: TextStyle(
           fontSize: 12.0,
           color: Colors.black,
+          decoration: TextDecoration.underline,
         ),
       ),
     );
 
     return Container(
-      height: MediaQuery.of(context).size.height * 0.6,
+      height: MediaQuery.of(context).size.height * 0.5,
       padding: const EdgeInsets.all(20.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

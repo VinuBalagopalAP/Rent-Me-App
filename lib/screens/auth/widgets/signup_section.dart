@@ -15,20 +15,8 @@ class SignUpSection extends StatefulWidget {
 class _SignUpSectionState extends State<SignUpSection> {
   @override
   Widget build(BuildContext context) {
-    final forgotPassword = Container(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      alignment: Alignment.topRight,
-      child: const Text(
-        "Forgot Password?",
-        style: TextStyle(
-          fontSize: 12.0,
-          color: Colors.black,
-        ),
-      ),
-    );
-
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.6,
+      height: MediaQuery.of(context).size.height * 0.5,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -61,9 +49,6 @@ class _SignUpSectionState extends State<SignUpSection> {
             const EmailField(),
             const SizedBox(height: 10),
             const PasswordField(),
-            const PasswordField(),
-            const PasswordField(),
-            forgotPassword,
           ],
         ),
       ),
