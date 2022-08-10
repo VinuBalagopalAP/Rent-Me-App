@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/auth/widgets/auth_section.dart';
 import '../../screens/screens.dart';
 
 class MyRoutes {
@@ -19,16 +18,6 @@ class MyRoutes {
       case '/home':
         return MaterialPageRoute(
           builder: (context) => const Home(),
-        );
-
-      case '/signup':
-        return MaterialPageRoute(
-          builder: (context) => const SignUpSection(),
-        );
-
-      case '/login':
-        return MaterialPageRoute(
-          builder: (context) => const LoginSection(),
         );
 
       case '/menu':
